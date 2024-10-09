@@ -9,6 +9,8 @@ from langchain_core.runnables.history import RunnableWithMessageHistory  # 导�
 from .session_history import get_session_history  # 导入会话历史相关方法
 from utils.logger import LOG  # 导入日志工具
 
+from langchain_openai import OpenAI,ChatOpenAI  # 导入OpenAI库用于访问GPT模型
+
 class AgentBase(ABC):
     """
     抽象基类，提供代理的共有功能。
@@ -55,8 +57,15 @@ class AgentBase(ABC):
         ])
 
         # 初始化 ChatOllama 模型，配置参数
-        self.chatbot = system_prompt | ChatOllama(
-            model="llama3.1:8b-instruct-q8_0",  # 使用的模型名称
+        #self.chatbot = system_prompt | ChatOllama(
+        #    model="llama3.1:8b-instruct-q8_0",  # 使用的模型名称
+        #    max_tokens=8192,  # 最大生成的 token 数
+        #    temperature=0.8,  # 随机性配置
+        #)
+
+        # 初始化 ChatOllama 模型，配置参数
+        self.chatbot = system_prompt | ChatOpenAI(
+            model="gpt-4o-mini",  # 使用的模型名称
             max_tokens=8192,  # 最大生成的 token 数
             temperature=0.8,  # 随机性配置
         )
