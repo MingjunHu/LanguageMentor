@@ -28,7 +28,7 @@ https://github.com/user-attachments/assets/6298a8e4-28fc-4a60-badc-59bff16b315e
 
 1. **克隆仓库**
    ```bash
-   git clone https://github.com/DjangoPeng/LanguageMentor.git
+   git clone https://github.com/MingjunHu/LanguageMentor.git
    cd LanguageMentor
    ```
 
